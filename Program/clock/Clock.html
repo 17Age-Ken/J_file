@@ -1,0 +1,83 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>时钟</title>
+<head>
+<style type="text/css">
+#second{
+	width:100px;
+	height:1px;
+	background-color:#000;
+	position:absolute;
+	left:50%;
+	top:50%;
+	z-index:4;
+	margin:0 0 0 -10px;
+	transform:rotate(0deg);
+	transform-origin:10px 50%;   /* 设置旋转基点*/
+}
+#minute{
+	width:90px;
+	height:3px;
+	background-color:#333;
+	position:absolute;
+	left:50%;
+	top:50%;
+	z-index:3;
+	transform:rotate(0deg);
+	transform-origin:0 50%;   /* 设置旋转基点,等于0 50%=left*/
+}
+#hour{
+	width:65px;
+	height:4px;
+	background-color:#666;
+	position:absolute;
+	left:50%;
+	top:50%;
+	z-index:2;
+	transform:rotate(0deg);
+	transform-origin:0 50%;
+}
+#bg{
+	width: 200px;
+	height: 200px;
+	position: absolute;
+	left: 50%;
+	top: 50%;
+	z-index: 1;
+	margin: -100px 0 0 -100px;
+}
+</style>
+<script>
+function $(e){
+	return document.getElementById(e);
+}
+	 
+function clock(){
+	var date=new Date();
+	//秒针
+	var second=6*date.getSeconds()-90;
+	$("second").style.transform="rotate("+second+"deg)";
+	
+	//分针
+	var minute=6*date.getMinutes()-90;
+	$("minute").style.transform="rotate("+minute+"deg)";
+	
+	//时针
+	var hour=30*date.getHours()-90;
+	$("hour").style.transform="rotate("+hour+"deg)";
+	
+	setTimeout("clock()",1000);
+}
+</script>
+</head>
+
+
+<body onload=clock()>
+<div id="second"></div>
+<div id="minute"></div>
+<div id="hour"></div>
+<div id="bg"><img src="imgs/clock.jpg" width="200" height="200" /></div>
+</body>
+</html>
