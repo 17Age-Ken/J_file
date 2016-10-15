@@ -16,7 +16,7 @@
 window.onload = function() {
     var timer = null;
     
-    var alpha = 30;
+    var g= 30;
     var fallin=document.getElementById('fallin');
     var fallout=document.getElementById('fallout');
     fallin.onclick = function() {
@@ -26,28 +26,35 @@ window.onload = function() {
         show(30);
     }
     function show(m) {
+		
         clearInterval(timer);
+		
         var oDiv = document.getElementById('div1');
         var speed = null;
-        if (alpha < m) {
+        if (g < m) {
             speed = 10;
         } 
         else {
             speed = -10;
         }
-        timer = setInterval(function() {
-            if (alpha == m) 
+		
+        function time() {
+            
+            if (g == m) 
             {
                 clearInterval(timer);
             } 
             else 
             {
-                alpha += speed;
-                oDiv.style.filter = 'alpha(opacity:' + alpha + ')';
-                oDiv.style.opacity = alpha / 100;
+                g += speed;
+                oDiv.style.filter = 'alpha(opacity:' + g + ')';
+                oDiv.style.opacity = g / 100;
             }
-        }, 30);
-    }
+           
+         
+        }
+        timer=setInterval(time(),30);
+	}
 }
 </script>
 </head>
