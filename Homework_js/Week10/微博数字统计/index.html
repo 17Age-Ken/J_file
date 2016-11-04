@@ -1,0 +1,37 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>无标题文档</title>
+<style type="text/css">
+.textColor{color:#c00}
+.input{height:60px; width:400px}
+</style>
+<script src="js/jquery-1.11.1.min.js"></script>
+<script>
+	$(function(){
+		var text=$("#edit_myform textarea").val();
+		var counter=text.length;
+		$("#numtj var").text(100-counter);
+		$(document).keyup(function(){
+			var text=$("#edit_myform textarea").val();
+			var counter=text.length;
+			if(counter>100){
+				$("#numtj var").text("对不起，输入的字符超长了！");
+				//$("#edit_myform textarea").attr("readonly","true");
+			}else
+				$("#numtj var").text(100-counter);
+		});	
+	});
+</script>
+</head>
+
+<body>
+<div id="edit_myform">
+<form action="" method="post">
+<p id="numtj">你还可以输入<var class="textColor"></var>个字符。</p>
+<p class="textinput"><label><textarea name="" cols="" rows="" maxlength="110" class="input"></textarea></label></p>
+</form>
+</div>
+</body>
+</html>
